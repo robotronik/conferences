@@ -1,0 +1,16 @@
+# Linux
+
+Points abordés :
+* Linux c'est quoi ?
+* L'arborescence
+* Commandes de bases
+	* pwd
+	* ls
+	* cd 
+	* mkdir/rmdir
+
+
+## Linux c'est quoi ?
+
+Linux ou plus précisément GNU/Linux est un système d'exploitation basé sur un noyau UNIX. À la différence de Windows, qui est basé sur un noyau DOS, Linux est open source, c'est à dire que tout le monde peut avoir accès aux code sources et les modifiés à sa guise. La seule règle étant de laisser son œuvre libre et disponible à tous.
+
