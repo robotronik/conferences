@@ -29,7 +29,10 @@ Cette commande permet de de savoir où l'on se situe dans l'arborescence.
 
 ### ls
 
-Cette commande permet de lister tous les éléments dans un dossier. On peut ajouter à cette commande des drapeau (flag en anglais) afin de donner plus d'option. Par exemple, si l'on entre dans le terminal la commande suivante :
+Cette commande permet de lister tous les éléments dans un dossier. Voici ce que l'on obtient :
+
+![Sortie de la commande ls](images/ls.png)
+On peut ajouter à cette commande des drapeau (flag en anglais) afin de donner plus d'option. Par exemple, si l'on entre dans le terminal la commande suivante :
 
 ```
 $ ls -a
@@ -37,7 +40,7 @@ $ ls -a
 
 On va voir en sortie la liste des éléments du dossier dans lequel on se situe en incluant les éléments cachés cachés (élément dont le nom commence par un point).
 
-!!! Inclure image ls -a !!!
+![Sortie de la commande ls -a](images/ls-a.png)
 
 ```
 $ ls -l
@@ -45,4 +48,4 @@ $ ls -l
 
 Liste les éléments en donnant plus d'information sur les ces derniers.
 
-!!! Inclure image ls -l !!!
+![Sortie de la commande ls -l](images/ls-l.png)
