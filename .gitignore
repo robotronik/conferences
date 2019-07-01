@@ -6,6 +6,7 @@
 # *~
 
 *.log
+*.lof
 *.aux
 *.lof
 *.maf
