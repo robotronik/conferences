@@ -38,14 +38,14 @@ On peut ajouter à cette commande des drapeau (flag en anglais) afin de donner p
 $ ls -a
 ```
 
+![Sortie de la commande ls -a](images/ls-a.png)
 On va voir en sortie la liste des éléments du dossier dans lequel on se situe en incluant les éléments cachés cachés (élément dont le nom commence par un point).
 
-![Sortie de la commande ls -a](images/ls-a.png)
 
 ```
 $ ls -l
 ```
 
-Liste les éléments en donnant plus d'information sur les ces derniers.
-
 ![Sortie de la commande ls -l](images/ls-l.png)
+Ici, tous les éléments du dossiers sont listés mais il y a plus d'information sur ces éléments (les droits associés, le propriétaire sa date de modification).
+De plus, il est possible d'associer plusieurs flags à une même commande. par exemple la seconde commande 
