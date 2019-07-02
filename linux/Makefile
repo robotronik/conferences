@@ -2,7 +2,7 @@ latexC=lualatex
 
 SRC = linux.tex
 
-To_clean = *.log *.aux *.lof *.maf *.mtc* *.out *.toc *.lot
+To_clean = *.log *.aux *.lof *.maf *.mtc* *.out *.toc *.lot *.nav *.snm
 
 linux : $(SRC)
 	$(latexC) $(SRC)
