@@ -109,7 +109,7 @@ En résumé tout ce que ces programmes font, c'est envoyer le code compilé se t
 
 ###Le debogage
 
-Vous avez flashé votre MCU et rien ne se passe comme prévu. Pas de soucis, c'est une étape innévitable ; le débogage. 
+Vous avez flashé votre MCU et rien ne se passe comme prévu. Pas de soucis, c'est une étape inévitable ; le débogage. 
 Ce sujet dois prendre un tutoriel entier (cf le débogage sur stm32). Mais vous devez que vous avez 4 techniques principales de débogage :
 * la led
 * la transmission série

@@ -151,7 +151,18 @@ Votre répertoire devrait ressembler au mien :
 ├── Makefile
 └── robotronikScripts
 
-Avec un terminal, trouvez vous dans le répertoire ".", c'est-à-dire le répertoire contenant bigtuto1 et robotronikScripts, et lancez la commande "make c". Si tout se passe bien vous verrez le message suivant :
+Le premier **Makefile** (pas celui se trouvant dans bigtuto1), a été écrit par robotronik et donne manière simple de compiler les projets. Pour cela il faut lui spécifier sur quel projet on travaille. Il faut juste modifier quelques lignes dans le Makefile:
+```Makefile
+BOARD=f4
+PROJECT_DIR=bigtuto1
+PROJECT_NAME=bigtuto1
+```
+Ces lignes définissent des variables qui sont utilisé danss le script make. 
+* La première variable **"BOARD"**, désigne la série de carte (f0,f3,f4,h7 ...), dans mon cas j'ai un STM32**F4**01RE. Je mets donc : BOARD=f4.
+* La deuxième variable **PROJECT_DIR**, désigne le nom du répertoire, dans notre cas c'est bigtuto1.
+* La troizième variable **PROJECT_NAME**, désigne le nom du fichier .ioc à l'intérieur du répertoire "PROJECT_DIR". Dans mon cas c'est **bigtuto1**. Dans la plupart des cas, PROJECT_DIR et PROJECT_NAME dont égaux.
+
+Ensuite avec un terminal, trouvez vous dans le répertoire ".", c'est-à-dire le répertoire contenant bigtuto1 et robotronikScripts, et lancez la commande "make c". Si tout se passe bien vous verrez le message suivant :
 
 ![reussiteCompilation](/image/reussiteCompilation.jpg "Message de réussite de la compilation")
 
@@ -171,9 +182,38 @@ Normalement si l'opération a réussie, la led verte sur votre stm devrait être
 Bravo ! Vous avez fait votre premier code sur STM32 avec la pipeline robotronik !!! Bon c'est le code le plus simple que j'ai pu imaginer mais c'est surtout le début d'une grande aventure. Dans la suite de ce tuto, vous allez apprendre comment contrôller cette led de manière simple, puis d'une autre méthode plus compliqué. Ainsi si vous savez contrôller une led vous savez déja faire une grande partie des choses demandées en robotique. Ce qui vous manquera, c'est comment comuniquer avec des composant électroniques. Finalement vous n'aurez plus qu'à explorer les différents types de périphériques et vous atteindrez le status de divinité de l'électronique (enfin il y a encore du boulot ;) ).
 
 #Tutoriel contrôler les GPIO
+Bon, vous allez me dire que c'est chiant ce qu'on a fait, on a même pas encore codé. Ne vous inquiètez pas. Maintenant que l'on sait que votre environnement de travail est bien configuré, on va pouvoir commencer à coder. Dans l'exemple précédent ce qui est chiant, c'est le manque d'action. Dans cette partie du tutoriel on va faire clignoter la led. woaw.
+Comme ce tutoriel est bien structuré, vous n'avez pas à configurer et à générer votre code de configuration avec cubemx. Nous allons utiliser le projet du tutoriel précédent et aller directement dans le code. 
+
+Pour rappel le répertoire du projet devrait ressembler à celà :
+.
+├── bigtuto1
+│   ├── bigtuto1.ioc
+│   ├── Drivers
+│   │   ├── CMSIS
+│   │   └── STM32F4xx_HAL_Driver
+│   ├── Inc
+│   │   ├── gpio.h
+│   │   ├── main.h
+│   │   ├── stm32f4xx_hal_conf.h
+│   │   ├── stm32f4xx_it.h
+│   │   └── usart.h
+│   ├── Makefile
+│   ├── Src
+│   │   ├── gpio.c
+│   │   ├── main.c
+│   │   ├── stm32f4xx_hal_msp.c
+│   │   ├── stm32f4xx_it.c
+│   │   ├── system_stm32f4xx.c
+│   │   └── usart.c
+│   ├── startup_stm32f401xe.s
+│   └── STM32F401RETx_FLASH.ld
+├── Makefile
+└── robotronikScripts
 
 #Tutoriel contrôler les GPIO (avec classe)
 
+#Tutoriel apprendre à compter (les timers)
 #Tutoriels communiquer
 ##Tutoriel UART
 ##Tutoriel SPI
@@ -185,6 +225,6 @@ Bravo ! Vous avez fait votre premier code sur STM32 avec la pipeline robotronik 
 
 #Le watchdog
 
-#Middleware 
+#Middlewares
 ##FreeRTOS
 ##Autres
