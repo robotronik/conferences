@@ -1,6 +1,8 @@
 ---
 title: 'HELLO LED tutoriel'
-author: Vincent Loibl -- loibl.vincent@gmail.com
+author: 
+- Vincent Loibl -- loibl.vincent@gmail.com
+- Antonin 
 description: | 
     avec révision de
 date: 12.07.2019
@@ -18,6 +20,8 @@ Ce tutoriel est conçu pour être assez long mais pour être fait en plusieurs f
 
 **************
 
+## Présentation 
+
 # Installation de l'environnement de travail
 
 ## Installation Linux
@@ -30,7 +34,7 @@ Ce tutoriel est conçu pour être assez long mais pour être fait en plusieurs f
 
 # Le tout premier code
 
-Le but de ce code est de tester le plus rapidement possible si les installations précédentes se sont bien déroulées. C'est donc le code le plus simple imaginable. 
+Le but de ce code est de tester le plus rapidement possible si les installations précédentes se sont bien déroulées. C'est donc le code le plus simple imaginable. Le but pour l'instant est simplement d'allumer une led.
 
 ## Génération du code sous stmcubeMX
 
@@ -237,7 +241,7 @@ Normalement si l'opération a réussie, la led verte sur votre stm devrait être
 Bravo ! Vous avez fait votre premier code sur STM32 avec la pipeline robotronik !!! Bon c'est le code le plus simple que j'ai pu imaginer mais c'est surtout le début d'une grande aventure. Dans la suite de ce tuto, vous allez apprendre comment contrôller cette led de manière simple, puis d'une autre méthode plus compliqué. Ainsi si vous savez contrôller une led vous savez déja faire une grande partie des choses demandées en robotique. Ce qui vous manquera, c'est comment comuniquer avec des composant électroniques. Finalement vous n'aurez plus qu'à explorer les différents types de périphériques et vous atteindrez le status de divinité de l'électronique (enfin il y a encore du boulot ;) ).
 
 #Tutoriel contrôler les GPIO
-Bon, vous allez me dire que c'est chiant ce qu'on a fait, on a même pas encore codé. Ne vous inquiètez pas. Maintenant que l'on sait que votre environnement de travail est bien configuré, on va pouvoir commencer à coder. Dans l'exemple précédent ce qui est chiant, c'est le manque d'action. Dans cette partie du tutoriel on va faire clignoter la led. woaw.
+Bon, vous allez me dire que c'est chiant ce qu'on a fait, on a même pas encore codé. Ne vous inquiètez pas. Maintenant que l'on sait que votre environnement de travail est bien configuré, on va pouvoir commencer à coder. Dans l'exemple précédent ce qui est chiant, c'est le manque d'action. Dans cette partie du tutoriel on va faire clignoter une led et intéragir avec un bouton. woaw.
 Comme ce tutoriel est bien structuré, vous n'avez pas à configurer et à générer votre code de configuration avec cubemx. Nous allons utiliser le projet du tutoriel précédent et aller directement dans le code. 
 
 Pour rappel le répertoire du projet devrait ressembler à celà :
