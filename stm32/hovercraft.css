@@ -1,26 +1,28 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville|Racing+Sans+One|Satisfy);
 
+.step {
+    width: 1000px;
+}
+
 body {
-    font-size: 200%;
-    text-align: center;
+    font-size: 125%;
+    /* text-align: center; */
     font-family: Libre Baskerville;
 }
 
 p {
-    font-size: 125%;
     font-weight: normal;
     margin-bottom: 0.3em;
     margin-top: 0.3em;
 }
 
 em {
-    font-family: Satisfy;
-    font-size: 142%;
+    /* font-family: Satisfy; */
+    /* font-size: 125%; */
 }
 
 strong {
     font-family: Racing Sans One;
-    font-size: 127%;
     letter-spacing: -2px;
 }
 
@@ -35,7 +37,6 @@ ul {
 }
 
 li {
-    font-size: 125%;
     font-family: serif;
     font-weight: normal;
     margin-bottom: 0.3em;
