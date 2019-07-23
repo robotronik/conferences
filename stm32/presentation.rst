@@ -66,12 +66,12 @@ Comment qu'on exécute du code ?
 
 Du code source au résultat :
 ----------------------------
-.. image:: compilation.jpg
+.. image:: content/compilation.jpg
 
 L'étape de compilation :
 ------------------------
 
-.. image:: compilation.dot.svg
+.. image:: content/compilation.dot.svg
 
 ----
 
