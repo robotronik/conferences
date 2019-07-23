@@ -16,3 +16,7 @@
 *.mtc
 *.nav
 *.snm
+
+
+# Atom ide-cquery
+.vscode
