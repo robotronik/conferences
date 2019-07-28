@@ -275,7 +275,11 @@ Pour rappel le répertoire du projet devrait ressembler à celà :
 
 # Tutoriel contrôler les GPIO (avec classe)
 
+# Tutoriel comprendre la compilation d'un projet
+
 # Tutoriel apprendre à compter (les timers)
+
+# Tutoriel apprendre le déboguage sur stm32
 
 # Tutoriels communiquer
 

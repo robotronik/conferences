@@ -1,4 +1,4 @@
-CIBLE=bigBoiTuto
+CIBLE=pipeline
 PFLAGS=-f markdown-implicit_figures --number-sections --toc
 PDFVIEWER=okular
 
