@@ -28,9 +28,11 @@ Pour plus d'information sur les option d'installation, se référer au ficher IN
 1. Télécharger l'archive de la librairie sur le site http://tdinfo.phelma.grenoble-inp.fr/1AS1/bib.html
 2. Aller dans le dossier SDL_phelma/src et ouvrir le Makefile
 3. Ajouter au CFLAGS
+
 ```
 -I/usr/lib -I/home/$USER/dossier/SDL_draw-1.2.13/include -I/usr/include/SDL
 ```
+
 Remplacer $USER par votre nom d'utilisateur et dossier par le dossier dans lequel vous faites l'installation
 4. lancer la commande make
 
@@ -38,9 +40,9 @@ Remplacer $USER par votre nom d'utilisateur et dossier par le dossier dans leque
 Pour utiliser la librairie Phelma dans vos programme, il faudra ajouter dans vos Makefile :
  * Dans les CFLAGS :
  ```
- -I/usr/local/include/SDL -I/usr/include/SDL -I/home/nikola/tmp/SDL_draw-1.2.13/include/
+-I/usr/local/include/SDL -I/usr/include/SDL -I/home/nikola/tmp/SDL_draw-1.2.13/include/
  ```
  * Dans les LDFLAGS :
  ```
- -lSDLmain -lSDL -lSDL_ttf -lSDL_image  -lSDL_sound -lSDL_phelma -lSDL_draw
+-lSDLmain -lSDL -lSDL_ttf -lSDL_image  -lSDL_sound -lSDL_phelma -lSDL_draw
  ```
