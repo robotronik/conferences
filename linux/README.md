@@ -2,6 +2,8 @@
 
 Faire une petite intro
 
+![](Images/GNU_TUX.png)
+
 # Sommaire
 [Linux c'est quoi ?](introduction/README.md)
 
