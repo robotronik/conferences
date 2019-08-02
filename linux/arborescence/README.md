@@ -10,3 +10,6 @@ Vous l'aurez peut être remarqué mais tous les dossiers mènent à /. Ce dossie
 * usr : ce dossier contient tous les binaires de l'utilisateur, leur documentation, des librairies, des header, etc …
 * mnt : ce dossier est le dossier conventionnel pour monter des volumes (clé usb, lecteur cd, etc …). Il est possible de monter un volume où l'on veut dans son arborescence mais le système va monter par defaut les volume dans ce dossier.
 * var : dans ce dossier se situe les applications/programmes installé par l'utilisateur.
+
+
+[Sommaire](../README.md)
