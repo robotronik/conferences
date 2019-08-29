@@ -17,9 +17,16 @@ local: makedot
 	hovercraft $(FILE) $(TARGETDIR)
 
 serve: makedot
-	hovercraft $(FILE) -s
+	touch .serving
+	(hovercraft $(FILE) -s ; rm .serving) &
 
-view:
+serve_stop:
+	killall hovercraft
+
+.serving : serve
+	sleep 1
+
+view: .serving
 	xdg-open http://localhost:8000
 
 install:

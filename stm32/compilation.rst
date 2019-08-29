@@ -90,7 +90,7 @@ Le Compilateur
     * Unités spécifiques (vectorisation, calcul flottant,…)
 
 
-* Ne génère *pas* un exécutable fonctionnel, seulement un fichier objet
+* Ne génère *pas* un exécutable fonctionnel, seulement un fichier objet avec *votre* code
 
     * ne contient pas les fonctions appelées (:code:`printf, std::*,`)
 
@@ -156,3 +156,5 @@ Pour obtenir un exécutable facilement et de façon reproductible, il faut écri
     * détermine automatiquement les fichiers à recompiler
 
 * Parallélise les tâche sur le CPU
+
+* Doit être simple à écrire et à lire

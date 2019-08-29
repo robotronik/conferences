@@ -62,9 +62,9 @@ Des algos (et de l'électronique) :
 .. include:: makefile.rst
 
 
+.. include:: hal.rst
 
 
-.
 
 ----
 

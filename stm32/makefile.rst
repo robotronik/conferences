@@ -54,6 +54,59 @@ La syntaxe d'un Makefile
     run: cible
         ./cible --run
 
+----
+
+La syntaxe d'un Makefile
+========================
+
+.. code:: makefile
+
+    cible: dépendance1 dépendance2
+        recette
+        @recette muette
+        @echo la première dépendance est $<
+        compile --output=$@ --dependencies=$^
+
+
+* Des variables magiques :
+
+    :code:`$@` :
+        la cible
+    :code:`$<` :
+        la première dépendance
+    :code:`$^` :
+        toutes les dépendances
+
+* On peut rendre une règle muette en rajoutant un :code:`@` au début de la ligne.
+
+----
+
+La syntaxe d'un Makefile
+========================
+
+
+.. code:: makefile
+
+  %.o: %.c
+      compile_dat_file $< -o $@
+
+On peut écrire des règles "génériques".
+
+Ici, si on a besoin d'un fichier qui termine par :code:`.o` Make sait qu'il faudra compiler le fichier :code:`.c` correspondant.
+
+Par exemple si une autre règle est :
+
+.. code:: makefile
+
+  sudoku: sudoku.o auto_solver.o
+      link_those_files $< -o $@
+
+Make saura alors qu'il faut compiler :code:`sudoku.c` et :code:`auto_solver.c`.
+
+
+
+
+----
 
 L'utilisation d'un Makefile
 ===========================
@@ -71,13 +124,14 @@ On utilise un Makefile à l'aide de la commande :code:`make`.
     ./cible --run
     Hello world !
 
+Make fait le strict minimum : pas besoin de recompiler un fichier si les sources ne changent pas.
+
+.. code:: bash
+
     $ make cible
     make: « cible » est à jour.
 
 
-* Make affiche les lignes de code avant de les exécuter. Ceci peut être empêché en rajoutant un '@' au début de la ligne.
-
-* Make fait le strict minimum : pas besoin de recompiler un fichier si les sources ne changent pas.
 
 ----
 
