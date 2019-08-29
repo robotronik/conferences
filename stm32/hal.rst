@@ -15,7 +15,8 @@ Une architecture différente
 Un jeu d'instructions particulier
 ---------------------------------
 
-Pas la même architecture système, pas le même language matériel : il faut un compilateur spécifique : :code:`arm-none-eabi-gcc`
+Pas la même architecture système, pas le même language matériel : il faut un compilateur
+spécifique : :code:`arm-none-eabi-gcc`
 
 
 .. code:: makefile
@@ -30,7 +31,8 @@ Pas la même architecture système, pas le même language matériel : il faut un
 À quoi ça correspond ?
 
 :code:`-mcpu=cortex-m4`
-    on spécifie à GCC quelle version de Arm. De même que les processeur Intel ou AMD, on a plusieurs générations (Ryzen est différent de Bulldozer)
+    on spécifie à GCC quelle variante de Arm. De même que les processeurs Intel et AMD ont chacun
+    des spécificités, il existe une gamme de processeur ARM en fonction des besoins.
 
 :code:`-mthumb`
     Optimisation du Cortex (instructions compressées)
