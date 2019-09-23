@@ -1,4 +1,4 @@
-[Sommaire](electronique/README.md)
+[Sommaire](../README.md)
 # Matériel nécessaire pour l'asservissement
 Bien, je vois que vous êtes intéressé par le sujet. Alors commençons.  
 La manière la plus simple pour avoir un robot avec un déplacement précis (au mm) est d'avoir 2 roues motrices alignées sur le même axe à la même distance du centre du robot, et de roulettes à bille au tour pour éviter que le robot ne bascule (les roues motrices sur un bord ou au milieu, mais le bord reste plus simple à réaliser, pour éviter par exemple que les roues motrices se retrouvent à peine en contact avec le sol et tournent dans le vide (oui oui c'est déjà arrivé)).  
