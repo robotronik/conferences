@@ -6,7 +6,7 @@ Dépôt avec les fichiers pour les conférences Phelma :
 
 [stm32]() lien à faire
 
-[Asservissement](asservissement/README.md)
+[Asservissement](asservissements/README.md)
 
 [Latex](latex/README.md)
 
