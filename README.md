@@ -8,6 +8,6 @@ Dépôt avec les fichiers pour les conférences Phelma :
 
 [Asservissement](asservissements/README.md)
 
-[Latex](latex/README.md)
+[Latex](latex/latex.md)
 
 [Tutos](tutos/README.md)
