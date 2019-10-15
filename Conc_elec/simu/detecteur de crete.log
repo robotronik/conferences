@@ -1,21 +1,21 @@
-Circuit: * C:\Users\s1lv4r\Documents\conf\simu\detecteur de crete.asc
+Circuit: * C:\Users\s1lv4r\Documents\conf\Conc_elec\simu\detecteur de crete.asc
 
 .OP point found by inspection.
 
-Date: Mon Oct 14 23:31:44 2019
-Total elapsed time: 0.390 seconds.
+Date: Tue Oct 15 23:15:13 2019
+Total elapsed time: 0.063 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 2296
-traniter = 2296
-tranpoints = 1095
+totiter = 2320
+traniter = 2320
+tranpoints = 1097
 accept = 1077
-rejected = 18
+rejected = 20
 matrix size = 3
 fillins = 0
 solver = Normal
-Matrix Compiler1: 50 bytes object code size  0.0/0.1/[0.0]
+Matrix Compiler1: 50 bytes object code size  0.0/0.0/[0.0]
 Matrix Compiler2: 175 bytes object code size  0.0/0.1/[0.0]
 

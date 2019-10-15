@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# capteur_IR-rescue_+5V-power
+# +5V-power
 #
-DEF capteur_IR-rescue_+5V-power #PWR 0 0 Y Y 1 F P
+DEF +5V-power #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "capteur_IR-rescue_+5V-power" 0 140 50 H V C CNN
+F1 "+5V-power" 0 140 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -16,11 +16,11 @@ X +5V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_C-Device
+# C-Device
 #
-DEF capteur_IR-rescue_C-Device C 0 10 N Y 1 F N
+DEF C-Device C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "capteur_IR-rescue_C-Device" 25 -100 50 H V L CNN
+F1 "C-Device" 25 -100 50 H V L CNN
 F2 "" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -34,11 +34,11 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_Conn_01x03_Male-Connector
+# Conn_01x03_Male-Connector
 #
-DEF capteur_IR-rescue_Conn_01x03_Male-Connector J 0 40 Y N 1 F N
+DEF Conn_01x03_Male-Connector J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "capteur_IR-rescue_Conn_01x03_Male-Connector" 0 -200 50 H V C CNN
+F1 "Conn_01x03_Male-Connector" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -57,11 +57,11 @@ X Pin_3 3 200 -100 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_Conn_01x04_Male-Connector
+# Conn_01x04_Male-Connector
 #
-DEF capteur_IR-rescue_Conn_01x04_Male-Connector J 0 40 Y N 1 F N
+DEF Conn_01x04_Male-Connector J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "capteur_IR-rescue_Conn_01x04_Male-Connector" 0 -300 50 H V C CNN
+F1 "Conn_01x04_Male-Connector" 0 -300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -83,11 +83,11 @@ X Pin_4 4 200 -200 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_D-Device
+# D-Device
 #
-DEF capteur_IR-rescue_D-Device D 0 40 N N 1 F N
+DEF D-Device D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "capteur_IR-rescue_D-Device" 0 -100 50 H V C CNN
+F1 "D-Device" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -105,11 +105,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_GND-power
+# GND-power
 #
-DEF capteur_IR-rescue_GND-power #PWR 0 0 Y Y 1 F P
+DEF GND-power #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "capteur_IR-rescue_GND-power" 0 -150 50 H V C CNN
+F1 "GND-power" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -118,11 +118,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_LM324-Amplifier_Operational
+# LM324-Amplifier_Operational
 #
-DEF capteur_IR-rescue_LM324-Amplifier_Operational U 0 5 Y Y 5 L N
+DEF LM324-Amplifier_Operational U 0 5 Y Y 5 L N
 F0 "U" 0 200 50 H V L CNN
-F1 "capteur_IR-rescue_LM324-Amplifier_Operational" 0 -200 50 H V L CNN
+F1 "LM324-Amplifier_Operational" 0 -200 50 H V L CNN
 F2 "" -50 100 50 H I C CNN
 F3 "" 50 200 50 H I C CNN
 $FPLIST
@@ -154,11 +154,11 @@ X V+ 4 -100 300 150 D 50 50 5 1 W
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_NE555-Timer
+# NE555-Timer
 #
-DEF capteur_IR-rescue_NE555-Timer U 0 20 Y Y 1 F N
+DEF NE555-Timer U 0 20 Y Y 1 F N
 F0 "U" -400 350 50 H V L CNN
-F1 "capteur_IR-rescue_NE555-Timer" 100 350 50 H V L CNN
+F1 "NE555-Timer" 100 350 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -180,11 +180,11 @@ X DIS 7 500 0 150 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_PWR_FLAG-power
+# PWR_FLAG-power
 #
-DEF capteur_IR-rescue_PWR_FLAG-power #FLG 0 0 N N 1 F P
+DEF PWR_FLAG-power #FLG 0 0 N N 1 F P
 F0 "#FLG" 0 75 50 H I C CNN
-F1 "capteur_IR-rescue_PWR_FLAG-power" 0 150 50 H V C CNN
+F1 "PWR_FLAG-power" 0 150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -193,11 +193,11 @@ X pwr 1 0 0 0 U 50 50 0 0 w
 ENDDRAW
 ENDDEF
 #
-# capteur_IR-rescue_R-Device
+# R-Device
 #
-DEF capteur_IR-rescue_R-Device R 0 0 N Y 1 F N
+DEF R-Device R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "capteur_IR-rescue_R-Device" 0 0 50 V V C CNN
+F1 "R-Device" 0 0 50 V V C CNN
 F2 "" -70 0 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
