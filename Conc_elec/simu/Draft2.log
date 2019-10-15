@@ -1,0 +1,23 @@
+Circuit: * C:\Users\s1lv4r\Documents\conf\simu\Draft2.asc
+
+WARNING: Node VS is floating.
+
+WARNING: Less than two connections to node VS.  This node is used by C4.
+Direct Newton iteration for .op point succeeded.
+
+Date: Mon Oct 14 20:52:25 2019
+Total elapsed time: 0.082 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 3
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 11
+fillins = 1
+solver = Normal
+Matrix Compiler1:      30 opcodes
+Matrix Compiler2: 887 bytes object code size
