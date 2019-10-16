@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+LIBS:capteur_IR-cache
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -14,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:Conn_01x03_Male J1
+L capteur_IR-rescue:Conn_01x03_Male-Connector J1
 U 1 1 5DA5A9BE
 P 2050 2950
 F 0 "J1" H 2156 3228 50  0000 C CNN
@@ -25,7 +26,7 @@ F 3 "~" H 2050 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR02
+L capteur_IR-rescue:+5V-power #PWR02
 U 1 1 5DA5AA71
 P 2500 2750
 F 0 "#PWR02" H 2500 2600 50  0001 C CNN
@@ -40,7 +41,7 @@ Wire Wire Line
 Wire Wire Line
 	2500 2850 2250 2850
 $Comp
-L power:GND #PWR03
+L capteur_IR-rescue:GND-power #PWR03
 U 1 1 5DA5AAAB
 P 2500 3100
 F 0 "#PWR03" H 2500 2850 50  0001 C CNN
@@ -59,7 +60,7 @@ C1
 Wire Wire Line
 	2600 2950 2250 2950
 $Comp
-L power:PWR_FLAG #FLG01
+L capteur_IR-rescue:PWR_FLAG-power #FLG01
 U 1 1 5DA5AB27
 P 2500 2850
 F 0 "#FLG01" H 2500 2925 50  0001 C CNN
@@ -71,7 +72,7 @@ F 3 "~" H 2500 2850 50  0001 C CNN
 $EndComp
 Connection ~ 2500 2850
 $Comp
-L power:PWR_FLAG #FLG02
+L capteur_IR-rescue:PWR_FLAG-power #FLG02
 U 1 1 5DA5AB4E
 P 2500 3050
 F 0 "#FLG02" H 2500 3125 50  0001 C CNN
@@ -85,7 +86,7 @@ Connection ~ 2500 3050
 Text Notes 1400 3350 0    50   ~ 0
 connection vers l'arduino\nentrée: 5V et GND\nsortie: C1 
 $Comp
-L Connector:Conn_01x04_Male J2
+L capteur_IR-rescue:Conn_01x04_Male-Connector J2
 U 1 1 5DA5ACE8
 P 2050 3700
 F 0 "J2" H 2156 3978 50  0000 C CNN
@@ -96,7 +97,7 @@ F 3 "~" H 2050 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR01
+L capteur_IR-rescue:+5V-power #PWR01
 U 1 1 5DA5ADB7
 P 2400 4100
 F 0 "#PWR01" H 2400 3950 50  0001 C CNN
@@ -111,7 +112,7 @@ Wire Wire Line
 Wire Wire Line
 	2400 3800 2400 4100
 $Comp
-L Device:R R1
+L capteur_IR-rescue:R-Device R1
 U 1 1 5DA5AE8E
 P 2500 3650
 F 0 "R1" H 2570 3696 50  0000 L CNN
@@ -159,4 +160,6 @@ Text GLabel 4900 4850 2    50   Output ~ 0
 C1
 Wire Wire Line
 	4650 4850 4900 4850
+Text Notes 1600 4250 0    50   ~ 0
+connection CNY70\nentrée: VCC, em\nsortie: rep
 $EndSCHEMATC
