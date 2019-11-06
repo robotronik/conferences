@@ -1,0 +1,116 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage[french]{babel}
+
+\definecolor{blackRobotronik}{RGB}{19,19,19}
+
+% setting some colors for the theme
+\setbeamercolor{palette primary}{fg=blackRobotronik,bg=white}
+\setbeamercolor{palette secondary}{fg=blackRobotronik,bg=white}
+\setbeamercolor{structure}{fg=white,bg=blackRobotronik}
+\setbeamercolor{title in head/foot}{fg=white,bg=blackRobotronik}
+\setbeamercolor{date in head/foot}{fg=white,bg=blackRobotronik}
+
+% definition of the footline template
+\defbeamertemplate*{footline}{Robotronik}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}%
+    \makebox[2em][l]{{\usebeamerfont{title in head/foot}\textcolor{blackRobotronik}{\insertframenumber}}}%
+    {\usebeamercolor{title in head/foot}\insertframenumber}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshorttitle%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}%
+  \insertshortdate
+    %\includegraphics[width=.2\paperwidth,height=2.5ex,keepaspectratio]{gemalto}\hspace*{2em}%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% definition of the title page template
+\defbeamertemplate*{title page}{Robotronik}[1][]
+{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \filldraw[blackRobotronik]
+    (current page.north west) --
+    ([yshift=-2cm]current page.north west) --
+    ([xshift=-2cm,yshift=-2cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-2cm,yshift=3cm]current page.south east)} --
+    ([yshift=3cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+  \node[text=blackRobotronik,anchor=south west,font=\sffamily\LARGE,text width=.55\paperwidth] 
+  at ([xshift=10pt,yshift=-1cm]current page.west)
+  (title)
+  {\raggedright\inserttitle};   
+  \node[anchor=west]
+  at (title.east)
+  {\includegraphics[height=2.25cm]{Images/logo.png}};
+  \node[text=white,font=\large\sffamily,anchor=south west]
+  at ([xshift=30pt,yshift=1cm]current page.south west)
+  (date)
+  {\insertdate};
+  \node[text=white,font=\large\sffamily,anchor=south west]
+  at ([yshift=5pt]date.north west)
+  (author)
+  {\insertauthor};
+  \end{tikzpicture}%
+}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% definition of the symbols used in itemize
+\newcommand\blackBullet{%
+  \begin{tikzpicture}[xscale=0.85]
+  \fill[blackRobotronik]
+  (-1ex,1ex) to[out=-60,in=240,looseness=1.2]
+  (1ex,1ex) to[out=240,in=120,looseness=1.2]
+  (1ex,-1ex) to[out=120,in=60,looseness=1.2]
+  (-1ex,-1ex) to[out=60,in=-60,looseness=1.2]
+  cycle;  
+  \end{tikzpicture}%
+  }
+
+% definition of the itemize templates
+\defbeamertemplate*{itemize item}{blackBullet}{\small\raise0.5pt\hbox{\blackBullet}}
+\defbeamertemplate*{itemize subitem}{blackBullet}{\footnotesize\raise0.5pt\hbox{\blackBullet}}
+\defbeamertemplate*{itemize subsubitem}{blackBullet}{\footnotesize\raise0.5pt\hbox{\blackBullet}}
+
+\newenvironment{slide}[1]{
+  \begin{frame}[environment=slide]
+    \frametitle{\textbf{\insertsection}  : #1}}
+{\end{frame}}
+
+\setbeamercolor{section in toc}{fg = blackRobotronik}
+\setbeamercolor{section in toc shaded}{fg = blackRobotronik}
+
+%\setbeamercolor{item}{fg = blackRobotronik}
+%\setbeamercolor{subitem}{fg = blackRobotronik}
+%\setbeamercolor{subsubitem}{fg = blackRobotronik}
+
+\title{Linux, les bases}
+\author{Nicolas Cubric}
+\date{13/11/2019 - M001}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sommaire}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{slide}{Linux c'est quoi ?}
+
+\end{slide}
+
+\end{document}

@@ -1,17 +1,27 @@
 latexC=lualatex
 
 cours = linux.tex
-presentation = presetation_linux.tex
+presentation = presentation.tex
+test = template_beamer.tex
 
 To_clean = *.log *.aux *.lof *.maf *.mtc* *.out *.toc *.lot *.nav *.snm
 
-linux : $(cours)
-	$(latexC) $(cours)
-	$(latexC) $(cours)
+the_pdf = $(subst .tex,.pdf,$(presentation))
+the_pdf_cours = $(subst .tex,.pdf,$(cours))
+the_pdf_test = $(subst .tex,.pdf,$(test))
 
-presentation: $(presentation)
-	$(latexC) $(presentation)
-	$(latexC) $(presentation)
+
+%.pdf: %.tex
+	$(latexC) $<
+	$(latexC) $<
+
+presentation: $(the_pdf)
+	zathura $< &
+
+linux: $(the_pdf_cours)
+
+test: $(the_pdf_test)
+
 
 clean:
 	rm -f $(To_clean)
