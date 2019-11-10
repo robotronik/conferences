@@ -16,7 +16,6 @@ the_pdf_test = $(subst .tex,.pdf,$(test))
 	$(latexC) $<
 
 presentation: $(the_pdf)
-	zathura $< &
 
 linux: $(the_pdf_cours)
 

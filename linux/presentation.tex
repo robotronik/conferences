@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage{tikz}
 \usepackage[french]{babel}
+\usepackage{caption}
 
 \definecolor{blackRobotronik}{RGB}{19,19,19}
 
@@ -63,22 +64,12 @@
 % remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-% definition of the symbols used in itemize
-\newcommand\blackBullet{%
-  \begin{tikzpicture}[xscale=0.85]
-  \fill[blackRobotronik]
-  (-1ex,1ex) to[out=-60,in=240,looseness=1.2]
-  (1ex,1ex) to[out=240,in=120,looseness=1.2]
-  (1ex,-1ex) to[out=120,in=60,looseness=1.2]
-  (-1ex,-1ex) to[out=60,in=-60,looseness=1.2]
-  cycle;  
-  \end{tikzpicture}%
-  }
-
-% definition of the itemize templates
-\defbeamertemplate*{itemize item}{blackBullet}{\small\raise0.5pt\hbox{\blackBullet}}
-\defbeamertemplate*{itemize subitem}{blackBullet}{\footnotesize\raise0.5pt\hbox{\blackBullet}}
-\defbeamertemplate*{itemize subsubitem}{blackBullet}{\footnotesize\raise0.5pt\hbox{\blackBullet}}
+\setbeamertemplate{itemize item}[circle]
+\setbeamercolor{itemize item}{fg=blackRobotronik}
+\setbeamertemplate{itemize subitem}[square]
+\setbeamercolor{itemize subitem}{fg=blackRobotronik}
+\setbeamertemplate{itemize subsubitem}[cicle]
+\setbeamercolor{itemize subsubitem}{fg=blackRobotronik}
 
 \newenvironment{slide}[1]{
   \begin{frame}[environment=slide]
@@ -87,10 +78,13 @@
 
 \setbeamercolor{section in toc}{fg = blackRobotronik}
 \setbeamercolor{section in toc shaded}{fg = blackRobotronik}
+\setbeamertemplate{section in toc}[square]
+\setbeamerfont{section number projected}{size=\large}
+\setbeamercolor{section number projected}{bg=blackRobotronik,fg=white}
 
-%\setbeamercolor{item}{fg = blackRobotronik}
-%\setbeamercolor{subitem}{fg = blackRobotronik}
-%\setbeamercolor{subsubitem}{fg = blackRobotronik}
+\setbeamercolor{caption name}{fg=blackRobotronik}
+\setbeamertemplate{caption}[numbered]
+\setbeamercolor{caption number}{fg=blackRobotronik}
 
 \title{Linux, les bases}
 \author{Nicolas Cubric}
@@ -108,9 +102,88 @@
 \end{frame}
 
 \section{Introduction}
+\subsection{Linux c'est quoi ?}
 
 \begin{slide}{Linux c'est quoi ?}
-
+  \begin{center}
+    \includegraphics[scale=0.25]{Images/GNU_TUX.png}
+    \captionof{figure}{Logo de GNU/Linux}
+  \end{center}
 \end{slide}
+
+\begin{slide}{Linux c'est quoi ?}
+  \begin{itemize}
+    \item Un système d'exploitation
+      \begin{itemize}
+        \item crée en 1991 par Linus Torvalds.
+        \item écrit en C et en assembleur
+      \end{itemize}
+    \item Utilisé de partout
+    \begin{itemize}
+      \item Ordinateurs personnel
+      \item Téléphones portables/Tablettes
+      \item Super-ordinateurs
+    \end{itemize}
+  \end{itemize}
+\end{slide}
+
+\subsection{Les distributions}
+
+\begin{slide}{Les distributions}
+  \begin{center}
+    \includegraphics[scale=0.5]{Images/distro_mosaic.png}
+    \captionof{figure}{Logo de différentes distributions}
+  \end{center}
+\end{slide}
+
+\section{L'arborescence}
+
+\begin{slide}{}
+  \begin{center}
+    \includegraphics[scale=0.3]{Images/arborescence.png}
+    \captionof{figure}{Arborescence dans Linux}
+  \end{center}
+\end{slide}
+
+\begin{slide}{/}
+  \begin{itemize}
+  \item C'est le dossier à la racine.
+  \item Son petit nom c'est root (comme racine en anglais)
+  \item De ce dossier pars tout l'arborescence du systéme
+  \item Nous allons voir les principals dossiers.
+  \end{itemize}
+\end{slide}
+
+\begin{slide}{/home}
+  \begin{itemize}
+  \item C'est la maison !!!
+  \item Ici on retrouve toutes les données des utilisateurs
+  \item Chaques utilisateurs à son dossier attitré
+  \end{itemize}
+\end{slide}
+
+\section{Quelques commandes de bases}
+
+\subsection{Le terminal}
+\begin{slide}{Ouvrir un terminal}
+  \begin{itemize}
+  \item Dans la majorité des interfaces graphique : ctr+alt+t
+  \item Sinon aller chercher dans la liste des applications
+  \end{itemize}
+\end{slide}
+
+\subsection{man}
+
+\begin{slide}{man}
+  \begin{itemize}
+  \item man pour manual
+  \item Utile quand on cherche des informations sur une commande
+  \end{itemize}
+  \begin{center}
+    \large{Exemple d'utilisation :\\
+      \textbf{À vos pcs !!!}}
+  \end{center}
+\end{slide}
+
 
 \end{document}
