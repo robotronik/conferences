@@ -1,7 +1,15 @@
-\documentclass{beamer}
+\documentclass[13pt]{beamer}
 \usepackage{tikz}
 \usepackage[french]{babel}
+\usepackage{url}
 \usepackage{caption}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
 
 \definecolor{blackRobotronik}{RGB}{19,19,19}
 
@@ -97,7 +105,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Sommaire}
+  \frametitle{\textbf{Sommaire}}
   \tableofcontents
 \end{frame}
 
@@ -162,10 +170,40 @@
   \end{itemize}
 \end{slide}
 
+\subsection{Retrouver son chemin}
+
+\begin{slide}{Retrouver son chemin}
+  Il existe deux types de chemins dans Linux :
+  \begin{itemize}
+    \item Les chemins \textit{absolus}
+      \begin{itemize}
+      \item On exprime le chemin en partant de la racine
+      \item Par exemple le chemin pour mon home : /home/nikola
+      \end{itemize}
+    \item Les chemins \textit{relatifs}
+      \begin{itemize}
+      \item On exprime le chemin relatif au dossier courant.
+      \item Par exemple le chemin pour mon home : \textasciitilde
+      \end{itemize}
+  \end{itemize}
+\end{slide}
+
+\begin{slide}{Chemin relatif ?}
+  Comme préciser dans slide précédente, il est possible d'exprimer un chemin par
+  rapport au dossier dans lequel on se situe.\\
+
+  Si l'on affiche les fichier cacher on peut remarquer deux dossiers présents
+  peu importe où l'on se situe dans l'arborescence :
+  \begin{itemize}
+  \item . qui est le dossier courant
+  \item .. qui est le dossier parent
+  \end{itemize}
+\end{slide}
+
 \section{Quelques commandes de bases}
 
 \subsection{Le terminal}
-\begin{slide}{Ouvrir un terminal}
+\begin{slide}{Le terminal}
   \begin{itemize}
   \item Dans la majorité des interfaces graphique : ctr+alt+t
   \item Sinon aller chercher dans la liste des applications
@@ -184,6 +222,16 @@
       \textbf{À vos pcs !!!}}
   \end{center}
 \end{slide}
+
+
+\section{Conclusion}
+
+\begin{frame}
+  \frametitle{\textbf{Conclusion}}
+  Merci de votre attenion.\\
+  \vspace*{1cm}
+  Les slides et sont disponibles sur le github de Robotronik : \url{github.com/robotronik/conferences}
+\end{frame}
 
 
 \end{document}
