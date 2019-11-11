@@ -4,12 +4,15 @@
 \usepackage{url}
 \usepackage{caption}
 \usepackage{xcolor}
+\usepackage{setspace}
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily,
   showstringspaces=false,
   commentstyle=\color{red},
   keywordstyle=\color{blue}
 }
+
+%\onehalfspacing
 
 \definecolor{blackRobotronik}{RGB}{19,19,19}
 
@@ -113,26 +116,28 @@
 \subsection{Linux c'est quoi ?}
 
 \begin{slide}{Linux c'est quoi ?}
-  \begin{center}
-    \includegraphics[scale=0.25]{Images/GNU_TUX.png}
-    \captionof{figure}{Logo de GNU/Linux}
-  \end{center}
-\end{slide}
-
-\begin{slide}{Linux c'est quoi ?}
-  \begin{itemize}
-    \item Un système d'exploitation
+  \begin{tabular}{cl}
+    \begin{tabular}{c}
+      \includegraphics[width=0.3\textwidth]{Images/tux.jpg}
+    \end{tabular}
+    \begin{tabular}{l}
+      \parbox{0.7\textwidth}{
       \begin{itemize}
+      \item Un système d'exploitation
+        \begin{itemize}
         \item crée en 1991 par Linus Torvalds.
         \item écrit en C et en assembleur
+        \end{itemize}
+      \item Utilisé de partout
+        \begin{itemize}
+        \item Ordinateurs personnel
+        \item Téléphones portables/Tablettes
+        \item Super-ordinateurs
+        \end{itemize}
       \end{itemize}
-    \item Utilisé de partout
-    \begin{itemize}
-      \item Ordinateurs personnel
-      \item Téléphones portables/Tablettes
-      \item Super-ordinateurs
-    \end{itemize}
-  \end{itemize}
+      }
+    \end{tabular}
+  \end{tabular}
 \end{slide}
 
 \subsection{Les distributions}
@@ -153,38 +158,21 @@
   \end{center}
 \end{slide}
 
-\begin{slide}{/}
-  \begin{itemize}
-  \item C'est le dossier à la racine.
-  \item Son petit nom c'est root (comme racine en anglais)
-  \item De ce dossier pars tout l'arborescence du systéme
-  \item Nous allons voir les principals dossiers.
-  \end{itemize}
-\end{slide}
-
-\begin{slide}{/home}
-  \begin{itemize}
-  \item C'est la maison !!!
-  \item Ici on retrouve toutes les données des utilisateurs
-  \item Chaques utilisateurs à son dossier attitré
-  \end{itemize}
-\end{slide}
-
 \subsection{Retrouver son chemin}
 
 \begin{slide}{Retrouver son chemin}
   Il existe deux types de chemins dans Linux :
   \begin{itemize}
-    \item Les chemins \textit{absolus}
-      \begin{itemize}
-      \item On exprime le chemin en partant de la racine
-      \item Par exemple le chemin pour mon home : /home/nikola
-      \end{itemize}
-    \item Les chemins \textit{relatifs}
-      \begin{itemize}
-      \item On exprime le chemin relatif au dossier courant.
-      \item Par exemple le chemin pour mon home : \textasciitilde
-      \end{itemize}
+  \item Les chemins \textit{absolus}
+    \begin{itemize}
+    \item On exprime le chemin en partant de la racine
+    \item Par exemple le chemin pour mon home : /home/nikola
+    \end{itemize}
+  \item Les chemins \textit{relatifs}
+    \begin{itemize}
+    \item On exprime le chemin relatif au dossier courant.
+    \item Par exemple le chemin pour mon home : \textasciitilde
+    \end{itemize}
   \end{itemize}
 \end{slide}
 
@@ -204,21 +192,18 @@
 
 \subsection{Le terminal}
 \begin{slide}{Le terminal}
+  \begin{center}
+    \includegraphics[scale=0.4]{Images/terminal.png}
+  \end{center}
   \begin{itemize}
   \item Dans la majorité des interfaces graphique : ctr+alt+t
   \item Sinon aller chercher dans la liste des applications
   \end{itemize}
 \end{slide}
 
-\subsection{man}
-
-\begin{slide}{man}
-  \begin{itemize}
-  \item man pour manual
-  \item Utile quand on cherche des informations sur une commande
-  \end{itemize}
+\begin{slide}{Partie pratique}
   \begin{center}
-    \large{Exemple d'utilisation :\\
+    \LARGE{Exemple d'utilisation :\\
       \textbf{À vos pcs !!!}}
   \end{center}
 \end{slide}
