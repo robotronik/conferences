@@ -6,4 +6,4 @@ Dans ce dossier vous trouverez les tutos fait par Robotronik :
 
 [Maintenance des ordinateurs du club](maintenir_pc.md)
 
-[Installer SDL Phelma](intaller_SDL_phelma.md)
+[Installer SDL Phelma](installer_SDL_phelma.md)
