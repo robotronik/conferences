@@ -1,0 +1,96 @@
+
+\section{Qu'est-ce que la compilation ?}
+
+\subsection{Parler avec le processeur : le jeu d'instructions}
+
+\begin{frame}[fragile]
+\frametitle{\insertsubsection}
+\begin{itemize}
+  \item Ensemble des instructions exécutables par un processeur
+    \begin{itemize}
+    \item \texttt{ADD}, \texttt{AND}, \texttt{OR}, \texttt{CMP} (Compare),\…
+     \item Division flottante (\texttt{FDIV}), Sinus/Cosinus (\texttt{FSIN, FCOS, FSINCOS}),\…
+     \item Accès aux périphériques, changement de fréquence du processeur,\…
+    \end{itemize}
+  \item Le language Assembleur permet de représenter un code binaire:
+    \begin{itemize}
+      \item Code binaire : 10110000 01100001
+      \item Code assembleur : \texttt{movb \$0x61,\%al}\\
+            10110000 = \texttt{movb \%al}\\
+            01100001 = \texttt{\$0x61}
+      \item Action : écrire le nombre 0x61 = 97 dans le registre al.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Du code source au binaire}
+\subsubsection{Préprocesseur}
+\begin{frame}[fragile]
+\begin{itemize}
+  \item Une étape de transformation \textit{statique} du code source.
+  \item Cherche les fichiers inclus par : \texttt{\#include "mon\_header.h"}
+  \item \textbf{Remplace} la ligne du \texttt{\#include} par le \textit{contenu} du fichier inclus
+  \item Insère les macros là où elles sont appelées
+\begin{tabular}{p{5cm} p{5cm}}
+\begin{lstlisting}
+#include <stdio.h>
+#define HELLO_FR "Bonjour !"
+#define CARRE(x) x*x
+
+int main()
+{
+  printf(HELLO_FR "\n");
+  printf("5^2 = %d", CARRE(5));
+}
+\end{lstlisting} & 
+\begin{lstlisting}
+<contenu de stdio.h recopié ici>
+
+
+
+int main()
+{
+  printf("Bonjour !" "\n");
+  printf("5^2 = %d", 5*5);
+}
+\end{lstlisting}
+\end{tabular}
+\end{itemize}
+\end{frame}
+
+\subsubsection{Les dangers du préprocesseur}
+\begin{frame}[fragile]
+\begin{center}
+\begin{tabular}{p{5.5cm} p{5.5cm}}
+\begin{lstlisting}
+#include <stdio.h>
+#define OK printf("valeur valide");
+#define NOK printf("valeur erronée");
+
+if (is_valid(n))
+  OK;
+else
+  NOK;
+\end{lstlisting} & 
+\begin{lstlisting}
+<contenu de stdio.h recopié ici>
+
+
+
+int main()
+{
+  printf("Bonjour !" "\n");
+  printf("5^2 = %d", 5*5);
+}
+\end{lstlisting} \\
+\begin{lstlisting}
+#define CIRCONFERENCE(x,y) x + x + y + y
+printf("demi-circonférence: %d", CIRCONFERENCE(10, 10) / 2);
+\end{lstlisting}
+\end{tabular}
+\end{center}
+\end{frame}
+\subsubsection{Compilation}
+\begin{frame} auie \end{frame}
+\subsubsection{Link}
+\begin{frame} auie \end{frame}
