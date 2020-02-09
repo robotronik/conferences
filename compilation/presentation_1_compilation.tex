@@ -1,6 +1,59 @@
 
 \section{Qu'est-ce que la compilation ?}
 
+\subsection{Comment qu'on exécute du code ?}
+\begin{frame}[fragile]
+\begin{block}{Du code source au résultat}
+
+  \begin{tikzpicture}[main node/.style={rectangle,draw,minimum size=0.5cm,align=left},]
+        
+    \node[main node, label=\textbf{Source :} \texttt{main.c}] (1) {
+      \texttt{int main()\{}\\
+      \texttt{~~~~printf("Hello");}\\
+      \texttt{~~~~\…}\\
+      \texttt{\}}
+    };
+    \node[main node] (2) [right = 1cm of 1] {Compilation};
+    \node[main node, label=Code objet] (3) [right = 1cm of 2] {
+      \texttt{01001001}\\
+      \texttt{10010100}\\
+      \texttt{11000011}\\
+      \texttt{10011011}
+    };
+    \node[main node, label=Résultat de l'exécution] (4) [right = 1cm of 3] {
+      \texttt{Hello}\\
+      \texttt{The result is 42}
+    };
+
+    \draw[->] (1) edge (2) (2) edge (3) (3) edge (4);
+  \end{tikzpicture}
+\end{block}
+
+\begin{block}{Les étapes de la compilation}
+  \begin{tikzpicture}[main node/.style={rectangle,draw,minimum size=0cm,align=left},]
+        
+    \node[main node, label=Fichier \texttt{.c}] (1) {Code Source};
+    \node[main node, label=Préprocesseur] (2) [right = 0.4cm of 1] {
+      Code reformaté:\\
+      Recherche des includes\\
+      Résolution des macros
+    };
+    \node[main node, label=Compilateur] (3) [right = 0.4cm of 2] {
+      Code objet\\
+      Optimisation
+    };
+    \node[main node, label=Linker (Éditeur de liens)] (4) [right = 0.3cm of 3] {
+      Recherche des librairies\\
+      Résolution des symboles\\
+      Génération de l'exécutable/librarie
+    };
+
+    \draw[->] (1) edge (2) (2) edge (3) (3) edge (4);
+  \end{tikzpicture}
+\end{block}
+\end{frame}
+
+
 \subsection{Parler avec le processeur : le jeu d'instructions}
 
 \begin{frame}[fragile]
@@ -24,6 +77,7 @@
 \end{frame}
 
 \subsection{Du code source au binaire}
+
 \subsubsection{Préprocesseur}
 \begin{frame}[fragile]
 \begin{itemize}
