@@ -5,6 +5,12 @@
 # *.[oa]
 # *~
 
+*.dvi
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.vrb
+*.xdv
 *.log
 *.lof
 *.aux
