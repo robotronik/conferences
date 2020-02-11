@@ -1,11 +1,290 @@
 
 \section{Outils de compilation}
-\begin{frame} auie \end{frame}
+
+\begin{frame}{Un joyeux bordel à organiser}
+
+  \textbf{\large Il faut gérer tout ça}
+  \par
+  \begin{itemize}
+    \item Chaque outil a ses spécificités
+    \item Chaque outil doit être exécuté avec les options (arguments) adéquats
+  \end{itemize}
+  \bigskip
+  \textbf{\large On veut :}
+  \begin{itemize}
+    \item Compiler facilement
+    \item Une compilation reproductible
+  \end{itemize}
+  \bigskip
+  \textbf{\large Il nous faut alors un script qui :}
+  \begin{itemize}
+    \item Liste les arguments de chaque outil
+    \item Exécute les étapes dans le bon ordre
+    \item Exécute uniquement les étapes nécessaires :
+      \begin{itemize}
+        \item ne recompile que si c'est nécessaire
+        \item détermine automatiquement les fichiers à recompiler
+      \end{itemize}
+    \item Parallélise les tâche sur le CPU
+    \item Doit être simple à écrire et à lire
+  \end{itemize}
+
+\end{frame}
+
 \subsection{Script de compilation}
-\begin{frame} auie \end{frame}
+\begin{frame}[fragile]
+\frametitle{\insertsubsection}
+
+On pourrait écrire un script de compilation\…
+\begin{lstlisting}[caption=]
+#!/bin/bash
+
+# Mes sources : main.c, audio_output.c, audio_output.h, ogg.h
+
+gcc -Wall -Wextra -I/usr/include/ogg -o main.o -c main.c 
+
+gcc -Wextra -I/usr/include/libsoundio -o audio_outupt.o -c audio_output.c
+
+gcc -lsoundio -logg main.o audio_output.o -o audio_notification
+
+\end{lstlisting}
+\onslide<2->{
+\medskip
+Mais :
+\begin{itemize}
+  \item Recompile tout, même si ce n'est pas nécessaire
+  \item Ne fait qu'une étape à la fois, alors que j'ai un processeur 12 coeurs
+  \item Ne détecte pas les changements dans les headers
+  \item Les arguments de compilation ne sont pas uniformes
+  \item Je me suis planté sur le nom d'un fichier
+\end{itemize}
+}
+\end{frame}
+
 \subsection{Make}
-\begin{frame} auie \end{frame}
+\begin{frame}[fragile]
+\frametitle{\insertsubsection}
+
+\begin{lstlisting}[language=make, caption=Un Makefile classique]
+FILES_SRC = \
+    main.c \
+    give_result.c \
+    robotronik_is_life.c
+
+FILES_HEADER = \
+    give_result.h \
+    robotronik.h
+
+FILES_OBJ = $(FILES_SRC:.c=.o)
+
+result: executable
+    executable --give-me-result
+
+executable: $(FILES_OBJ)
+    link_those_files $^ --output=$@
+
+%.o: %.c $(FILES_HEADER)
+    compile_dat_file $< -o $@
+\end{lstlisting}
+\end{frame}
+
+\subsubsection{La syntaxe d'un Makefile}
+
+\begin{frame}[fragile]
+\frametitle{\insertsubsubsection}
+\begin{lstlisting}[language=make, caption=]
+# Les lignes commençant par # sont ignorées.
+# On peut déclarer et utiliser des variables:
+Ma_Variable = tomate
+Ma_Liste = pomme poire abricot $(Ma_Variable)
+
+# Une *règle* est décrite par la cible, les dépendances et la recette
+
+cible: file1.c file2.c
+    # La recette est un script bash sur plusieurs lignes. On y écrit ce qu'on veut.
+    echo Ma liste contient $(Ma_Liste).
+    gcc $^ -o $@
+    @echo Fichier compilé !
+
+# Une cible n'est pas forcément un fichier : ça peut être une "commande"
+run: cible
+    ./cible --run
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{\insertsubsubsection}
+La syntaxe d'une \textit{règle} :
+\begin{lstlisting}[language=make, caption=]
+cible: dépendance1 dépendance2
+    recette
+    @recette muette
+    @echo la première dépendance est $<
+    compile --output=$@ --deps $^
+\end{lstlisting}
+\medskip
+On peut rendre une règle muette en rajoutant un \texttt{@} au début de la ligne.
+
+\bigskip
+Des variables magiques :
+\begin{description}
+  \item[\texttt{\textdollar@}] La cible
+  \item[\texttt{\textdollar<}] La première dépendance
+  \item[\texttt{\textdollar\textasciicircum}] Toutes les dépendances
+\end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\insertsubsubsection}
+
+On peut écrire des règles génériques, par exemple si plusieurs fichiers \texttt{*.o} doivent 
+être compilés \textit{depuis} leur \texttt{*.c} correspondant :
+
+\begin{lstlisting}
+%.o: %.c
+    compile_dat_file $< -o $@
+\end{lstlisting}
+\medskip
+Par exemple si une autre règle est :
+\begin{lstlisting}
+sudoku: sudoku.o auto_solver.o
+    link_those_files $< -o $@
+\end{lstlisting}
+
+Make saura alors qu'il faut compiler \texttt{sudoku.c} et \texttt{auto\_solver.c}.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\insertsubsubsection}
+
+On utilise un Makefile à l'aide de la commande \texttt{make}.
+
+\begin{lstlisting}[language=bash]
+$ make run
+# La recette est un script bash sur plusieurs lignes. On y écrit ce qu'on veut.
+echo Ma liste contient pomme poire abricot tomate.
+Ma liste contient pomme poire abricot tomate.
+gcc file1.c file2.c -o cible
+Fichier compilé !
+./cible --run
+Hello world !
+\end{lstlisting}
+
+
+
+Make fait le strict minimum : pas besoin de recompiler un fichier si les sources ne changent pas.
+
+\begin{lstlisting}[language=bash]
+
+$ make cible
+make: « cible » est à jour.
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{C'est compliqué tout ça\…}
+\sout{Ta gueule et code} Mais non, code, on est bien !
+
+\begin{itemize}
+  \item La syntaxe "de base" est finalement assez simple
+  \item Vous en apprendrez plus au fil du temps. Il faut juste déjà que vous sachiez lire et utiliser un Makefile.
+  \item Vous verrez des Makefile \textit{partout}
+  \item Ça simplifie réellement le boulot : \texttt{make flash} et tout est automatique !
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Petits bonus pour férus d'automatisation}
+\begin{itemize}
+\item Changer automatiquement l'extension des fichiers d'une liste:
+\begin{lstlisting}
+SOURCES = main.c pid.c asservissement.c hardware.c
+OBJECTS = $(SOURCES:.c=.o)
+\end{lstlisting}
+
+\item Automatisation de la détection des includes:
+\begin{lstlisting}[title=Makefile]
+CFLAGS += -MMD
+-include $(OBJECTS:.o=.d)
+\end{lstlisting}
+\medskip
+\begin{lstlisting}[title=file1.d]
+file1.o: file1.c file2.h
+
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Petits bonus pour férus d'automatisation}
+\begin{itemize}
+\item Trouver automatiquement les dépendances grâce à Pkg-config
+\begin{lstlisting}[title=\texttt{/usr/lib/pkgconfig/libpng.pc}]
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/libpng16
+
+Name: libpng
+Description: Loads and saves PNG files
+Version: 1.6.37
+Requires: zlib
+Libs: -L${libdir} -lpng16
+Libs.private: -lm -lz -lm 
+Cflags: -I${includedir}
+\end{lstlisting}
+
+\begin{lstlisting}[title=Code du makefile]
+CFLAGS += $(pkg-config --cflags libpng)
+# Résoudra en : -I/usr/include/libpng16
+
+LDFLAGS += $(pkg-config --libs libpng)
+# Résoudra en : -lpng16 -lz
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
 \subsection{Générateurs de Makefiles}
+\begin{frame}[fragile]{C'est compliqué tout ça\…}
+Ouai, bon, d'accord, c'est pas la syntaxe la plus propre du monde.
+
+\… Mais il existe des outils plus "propres" qui génèrent des Makefiles !
+\begin{lstlisting}
+project('mYBigGesTPrOJecTeVeR',
+  'cpp',
+  default_options: [
+    'buildtype=release',
+    'warning_level=3',
+  ],
+)
+
+ogg = dependency('ogg', version: '>=0.4.0')
+mp3 = dependency('mp3', version: '>=1.0', required: false)
+
+sources = [ 'converter_ogg.c' ]
+if mp3.found()
+  sources += 'converter_mp3.c'
+endif
+
+converter = executable('converter',
+  sources,
+  dependencies: [ ogg, mp3 ],
+  install: true,
+)
+  
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Quelques générateurs de scripts}
+\begin{itemize}
+  \item Autotools \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} \textbf{(bloated, lent, non portable,\…)}}}}
+  \item CMake \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (Langage  string-based, très souple, très portable)}}}
+  \item qmake \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (Orienté Qt / QtCreator)}}}
+  \item Scons \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (\textit{Lent})}}}
+  \item Bazel \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (Développé par Google, pas très libre, java)}}}
+  \item Meson \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (\textit{Très rapide})}}}
+\end{itemize}
+\end{frame}
+
 \begin{frame} auie \end{frame}
 \subsection{Meson}
 \begin{frame} auie \end{frame}
