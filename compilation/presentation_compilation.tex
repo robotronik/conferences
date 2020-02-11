@@ -1,10 +1,19 @@
 \documentclass[8pt,a9paper]{beamer}
 \usepackage[french]{babel}
-\usepackage[T1]{fontenc}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures={TeX}}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern} 
+\fi
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{listings}
+\usepackage{ulem}
+\usepackage{textcomp}
+\usepackage[procnames]{listings}
 \usepackage{color}
 %\usepackage{minted} % Needs --shell-escape and pygmentize
 \usepackage{tikz}
@@ -44,7 +53,7 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 \lstset{ 
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
@@ -67,8 +76,10 @@
   showtabs=false,                  % show tabs within strings adding particular underscores
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
-  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  tabsize=4,                       % sets default tabsize to 2 spaces
+  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  belowskip=0em,
+  belowcaptionskip=0em,
 }
 \newcommand{\…}{\dots}
 
