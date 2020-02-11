@@ -3,6 +3,7 @@
 
 \subsection{Comment qu'on exécute du code ?}
 \begin{frame}[fragile]
+\frametitle{\insertsubsection}
 \begin{block}{Du code source au résultat}
 
   \begin{tikzpicture}[main node/.style={rectangle,draw,minimum size=0.5cm,align=left},]
@@ -78,14 +79,15 @@
 
 \subsection{Du code source au binaire}
 
-\subsubsection{Préprocesseur}
+\subsubsection{Le Préprocesseur}
 \begin{frame}[fragile]
+\frametitle{\insertsubsubsection}
 \begin{itemize}
   \item Une étape de transformation \textit{statique} du code source.
   \item Cherche les fichiers inclus par : \texttt{\#include "mon\_header.h"}
   \item \textbf{Remplace} la ligne du \texttt{\#include} par le \textit{contenu} du fichier inclus
   \item Insère les macros là où elles sont appelées
-\begin{tabular}{p{5cm} p{5cm}}
+\begin{tabular}{p{5cm}p{5cm}}
 \begin{lstlisting}
 #include <stdio.h>
 #define HELLO_FR "Bonjour !"
@@ -114,9 +116,10 @@ int main()
 
 \subsubsection{Les dangers du préprocesseur}
 \begin{frame}[fragile]
+\frametitle{\insertsubsubsection}
 \begin{center}
 \begin{tabular}{p{5.5cm} p{5.5cm}}
-\begin{lstlisting}
+\begin{lstlisting}[caption=]
 #include <stdio.h>
 #define OK printf("valeur valide");
 #define NOK printf("valeur erronée");
@@ -126,25 +129,92 @@ if (is_valid(n))
 else
   NOK;
 \end{lstlisting} & 
-\begin{lstlisting}
+\begin{onlyenv}<2->
+\begin{lstlisting}[caption=]
 <contenu de stdio.h recopié ici>
 
 
 
-int main()
-{
-  printf("Bonjour !" "\n");
-  printf("5^2 = %d", 5*5);
-}
-\end{lstlisting} \\
-\begin{lstlisting}
-#define CIRCONFERENCE(x,y) x + x + y + y
-printf("demi-circonférence: %d", CIRCONFERENCE(10, 10) / 2);
+if (is_valid(n))
+  printf("valeur valide");;
+else
+  printf("valeur erronée");;
+
 \end{lstlisting}
+\end{onlyenv} \\
+\begin{lstlisting}[caption=]
+#define CIRCONFERENCE(x,y) x + x + y + y
+
+printf("demi-circonférence: %d", 
+    CIRCONFERENCE(10, 10) / 2);
+\end{lstlisting} &
+\begin{onlyenv}<3->
+\begin{lstlisting}[caption=]
+#define CIRCONFERENCE(x,y) x + x + y + y
+
+printf("demi-circonférence: %d", 
+    x + x + y + y / 2);
+\end{lstlisting}
+\end{onlyenv}
+\onslide<4->{\\
+\multicolumn{2}{c}{ \url{https://gcc.gnu.org/onlinedocs/cpp/Macro-Pitfalls.html} }
+\\
+}
+
 \end{tabular}
 \end{center}
 \end{frame}
-\subsubsection{Compilation}
-\begin{frame} auie \end{frame}
-\subsubsection{Link}
-\begin{frame} auie \end{frame}
+
+\subsubsection{Le Compilateur}
+\begin{frame}
+\frametitle{\insertsubsubsection}
+\begin{itemize}
+  \item Invoquer le compilateur de façon transparente
+    \begin{itemize}
+      \item Chercher les \texttt{includes}
+    \end{itemize}
+  \item Optimiser le code
+    \begin{itemize}
+      \item Boucles vides, regroupement ou réorganisation d'opérations,\…
+    \end{itemize}
+  \item Générer le code machine
+  \item Optimiser le code machine en fonction du processeur cible
+    \begin{itemize}
+      \item Unités spécifiques (vectorisation, calcul flottant,…)
+    \end{itemize}
+  \item Ne génère \textit{pas} un exécutable fonctionnel, seulement un fichier objet avec \textit{votre} code
+    \begin{itemize}
+      \item ne contient pas les fonctions appelées (\texttt{printf}, \texttt{std::*},)
+      \item ne "sait" pas où sont les librairies (SDL, GTK, Vulkan,\…)
+      \item ne contient pas le code d'initialisation
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\subsubsection{Le Linker (éditeur de liens)}
+\begin{frame}
+\frametitle{\insertsubsubsection}
+
+\begin{itemize}
+  \item Regroupe les fichiers objet (fichiers \texttt{*.o} issus de vos \texttt{*.c})
+  \item Cherche les librairies (GTK,\…)
+  \item Résout les symboles (cherche les fonctions appelées d'un objet à l'autre)
+    \begin{itemize}
+      \item La fonction existe-t-elle ?
+      \item Y a-t-il plusieurs définitions ? (conflits)
+      \item Enregistrement du lien (\textasciitilde adresse de la fonction)
+    \end{itemize}
+  \item Détermine les "sections" de l'exécutable
+    \begin{description}
+      \item[text] section d'instructions
+      \item[data/bss] sections de données (chaînes de caractère,…)
+      \item[eeprom] section de stockage de données (oui, dans le binaire\…)
+    \end{description}
+  \item Génère un exécutable fonctionnel
+    \begin{itemize}
+      \item Rajoute le code d'initialisation (\texttt{\_start})
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
