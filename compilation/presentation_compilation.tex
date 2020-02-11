@@ -23,7 +23,6 @@
 \usetikzlibrary{shapes}
 \usetikzlibrary{positioning}
 
-
 \usetheme{Boadilla}
 \useoutertheme{Compilation} \setbeamerfont{headline}{size=\small}
 %\setbeamertemplate{itemize subitem}[circle]
@@ -35,6 +34,18 @@
 \definecolor{vertpale}{rgb}{0.7, 0.9, 0.3}
 \definecolor{jaunepale}{rgb}{1, 0.95, 0.41}
 \definecolor{rougepale}{rgb}{0.77, 0.3, 0.32}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\secname\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
 
 \lstdefinelanguage
    {Assembler_x64}     % add a "x64" dialect of Assembler
