@@ -1,5 +1,0 @@
-
-digraph compilation {
-  rankdir="LR";
-  "Code source" -> "Préprocesseur" -> "Compilateur" -> "Linker" -> Exécutable;
-}
