@@ -1,2 +1,5 @@
 .serving
 _minted-presentation_compilation/
+
+*.i
+*.o
