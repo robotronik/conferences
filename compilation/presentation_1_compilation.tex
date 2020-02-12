@@ -74,6 +74,14 @@
             01100001 = \texttt{\$0x61}
       \item Action : écrire le nombre 0x61 = 97 dans le registre al.
     \end{itemize}
+  \item Chaque processeur a son jeu d'instruction (IS) : 
+    \begin{itemize}
+      \item x86 / x86\_64
+      \item ARM
+      \item RISC-V
+      \item MIPS
+      \item \…
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -85,10 +93,10 @@
 \begin{itemize}
   \item Une étape de transformation \textit{statique} du code source.
   \item Cherche les fichiers inclus par : \texttt{\#include "mon\_header.h"}
-  \item \textbf{Remplace} la ligne du \texttt{\#include} par le \textit{contenu} du fichier inclus
+  \item \textit{Remplace} la ligne du \texttt{\#include} par le \textit{contenu} du fichier inclus
   \item Insère les macros là où elles sont appelées
 \begin{tabular}{p{5cm}p{5cm}}
-\begin{lstlisting}
+\begin{lstlisting}[caption=]
 #include <stdio.h>
 #define HELLO_FR "Bonjour !"
 #define CARRE(x) x*x
@@ -99,7 +107,7 @@ int main()
   printf("5^2 = %d", CARRE(5));
 }
 \end{lstlisting} & 
-\begin{lstlisting}
+\begin{lstlisting}[caption=]
 <contenu de stdio.h recopié ici>
 
 
@@ -111,6 +119,11 @@ int main()
 }
 \end{lstlisting}
 \end{tabular}
+\item On doit indiquer au préprocesseur où chercher les includes :
+\begin{itemize}
+    \item Par défault : \texttt{.}, \texttt{/usr/include}
+    \item Autres exemples : \texttt{./ma\_librairie}, \texttt{/usr/include/gtk-3.0},\…
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -143,17 +156,17 @@ else
 \end{lstlisting}
 \end{onlyenv} \\
 \begin{lstlisting}[caption=]
-#define CIRCONFERENCE(x,y) x + x + y + y
+#define SOMME(x,y) x + y
 
-printf("demi-circonférence: %d", 
-    CIRCONFERENCE(10, 10) / 2);
+printf("(10 + 10) / 2 = %d", 
+    SOMME(10, 10) / 2);
 \end{lstlisting} &
 \begin{onlyenv}<3->
 \begin{lstlisting}[caption=]
-#define CIRCONFERENCE(x,y) x + x + y + y
 
-printf("demi-circonférence: %d", 
-    x + x + y + y / 2);
+
+printf("(10 + 10) / 2 = %d", 
+    10 + 10 / 2);
 \end{lstlisting}
 \end{onlyenv}
 \onslide<4->{\\
@@ -169,7 +182,7 @@ printf("demi-circonférence: %d",
 \begin{frame}
 \frametitle{\insertsubsubsection}
 \begin{itemize}
-  \item Invoquer le compilateur de façon transparente
+  \item Invoquer le préprocesseur, de façon transparente
     \begin{itemize}
       \item Chercher les \texttt{includes}
     \end{itemize}
@@ -198,7 +211,7 @@ printf("demi-circonférence: %d",
 
 \begin{itemize}
   \item Regroupe les fichiers objet (fichiers \texttt{*.o} issus de vos \texttt{*.c})
-  \item Cherche les librairies (GTK,\…)
+  \item Cherche les librairies (GTK,\…) $\rightarrow$ il faut lui indiquer où les chercher
   \item Résout les symboles (cherche les fonctions appelées d'un objet à l'autre)
     \begin{itemize}
       \item La fonction existe-t-elle ?

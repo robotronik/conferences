@@ -54,7 +54,7 @@ Mais :
 \begin{itemize}
   \item Recompile tout, même si ce n'est pas nécessaire
   \item Ne fait qu'une étape à la fois, alors que j'ai un processeur 12 coeurs
-  \item Ne détecte pas les changements dans les headers
+  %\item Ne détecte pas les changements dans les headers
   \item Les arguments de compilation ne sont pas uniformes
   \item Je me suis planté sur le nom d'un fichier
 \end{itemize}
@@ -65,7 +65,7 @@ Mais :
 \begin{frame}[fragile]
 \frametitle{\insertsubsection}
 
-\begin{lstlisting}[language=make, caption=Un Makefile classique]
+\begin{lstlisting}[language=make, title=Un Makefile classique]
 FILES_SRC = \
     main.c \
     give_result.c \
@@ -173,7 +173,7 @@ Hello world !
 
 
 
-Make fait le strict minimum : pas besoin de recompiler un fichier si les sources ne changent pas.
+Make fait le strict minimum : pas besoin de recompiler un fichier si les sources ne changent pas :
 
 \begin{lstlisting}[language=bash]
 
@@ -183,7 +183,7 @@ make: « cible » est à jour.
 \end{frame}
 
 \begin{frame}{C'est compliqué tout ça\…}
-\sout{Ta gueule et code} Mais non, code, on est bien !
+\sout{Ta gueule et code} Mais non, viens coder, on est bien !
 
 \begin{itemize}
   \item La syntaxe "de base" est finalement assez simple
@@ -193,6 +193,30 @@ make: « cible » est à jour.
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Un makefile pour tout et n'importe quoi}
+\begin{lstlisting}[language=make]
+default: view
+
+pdf = presentation_compilation.pdf
+
+%.pdf: %.tex
+    latexmk -xelatex -synctex=1 $<
+
+.PHONY: pull update_presentation view
+
+pull:
+    git pull --rebase
+
+update_presentation: $(pdf) | pull
+
+view: $(pdf)
+    xdg-open $<
+
+
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}[fragile]{Petits bonus pour férus d'automatisation}
 \begin{itemize}
