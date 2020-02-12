@@ -272,7 +272,7 @@ LDFLAGS += $(pkg-config --libs libpng)
 Ouai, bon, d'accord, c'est pas la syntaxe la plus propre du monde.
 
 \… Mais il existe des outils plus "propres" qui génèrent des Makefiles !
-\begin{lstlisting}
+\begin{lstlisting}[title=Un projet Meson]
 project('mYBigGesTPrOJecTeVeR',
   'cpp',
   default_options: [
@@ -300,15 +300,25 @@ converter = executable('converter',
 
 \begin{frame}{Quelques générateurs de scripts}
 \begin{itemize}
-  \item Autotools \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} \textbf{(bloated, lent, non portable,\…)}}}}
-  \item CMake \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (Langage  string-based, très souple, très portable)}}}
-  \item qmake \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (Orienté Qt / QtCreator)}}}
-  \item Scons \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (\textit{Lent})}}}
-  \item Bazel \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (Développé par Google, pas très libre, java)}}}
-  \item Meson \onslide<2>{{\footnotesize {\usebeamercolor[fg]{structure} (\textit{Très rapide})}}}
+  \item Autotools \onslide<2->{{\footnotesize {\usebeamercolor[fg]{structure} \textbf{(bloated, lent, non portable,\…)}}}}
+  \item CMake \onslide<2->{{\footnotesize {\usebeamercolor[fg]{structure} (Langage  string-based, très souple, très portable)}}}
+  \item qmake \onslide<2->{{\footnotesize {\usebeamercolor[fg]{structure} (Orienté Qt / QtCreator)}}}
+  \item Scons \onslide<2->{{\footnotesize {\usebeamercolor[fg]{structure} (\textit{Lent})}}}
+  \item Bazel \onslide<2->{{\footnotesize {\usebeamercolor[fg]{structure} (Développé par Google, pas très libre, java)}}}
+  \item Meson \onslide<2->{{\footnotesize {\usebeamercolor[fg]{structure} (\textit{Très rapide}, encore jeune)}}}
 \end{itemize}
+
+\onslide<3->{
+\vfill
+Écrire un Makefile est formateur, ne soyez pas flemmards dès le départ !
+}
 \end{frame}
 
-\begin{frame} auie \end{frame}
-\subsection{Meson}
-\begin{frame} auie \end{frame}
+\begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}À vos makefiles !\par%
+  \end{beamercolorbox}
+  \vfill
+\end{frame}
